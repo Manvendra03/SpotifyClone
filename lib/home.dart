@@ -98,17 +98,18 @@ class HomePage extends StatelessWidget {
                     list: Slist,
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 25,
                   ),
                   HorizontalList(tittle: "Your Shows", songList: Slist),
                   const SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
 
-                  HorizontalList(tittle: "Recent Played", songList: Slist),
+                  HorizontalList(tittle: "Your Liked", songList: Slist),
                   const SizedBox(
                     height: 20,
                   ),
+                  HorizontalList(tittle: "Recent Played", songList: Slist),
                 ],
               ),
             ),

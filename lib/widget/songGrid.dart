@@ -9,14 +9,14 @@ class SongGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 255,
+      height: 210,
       child: GridView.builder(
           physics: NeverScrollableScrollPhysics(),
           itemCount: 6,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisSpacing: 8,
               mainAxisSpacing: 8,
-              childAspectRatio: 2.3,
+              childAspectRatio: 2.8,
               crossAxisCount: 2),
           itemBuilder: (context, index) {
             return Container(
