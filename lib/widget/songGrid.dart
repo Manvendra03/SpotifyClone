@@ -8,15 +8,15 @@ class SongGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 210,
+    return Container(
+      height: 225,
       child: GridView.builder(
           physics: NeverScrollableScrollPhysics(),
           itemCount: 6,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisSpacing: 8,
               mainAxisSpacing: 8,
-              childAspectRatio: 2.8,
+              childAspectRatio: 3.1,
               crossAxisCount: 2),
           itemBuilder: (context, index) {
             return Container(
@@ -24,24 +24,35 @@ class SongGrid extends StatelessWidget {
                   color: const Color.fromARGB(255, 49, 48, 48),
                   borderRadius: BorderRadius.circular(5)),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
                     color: Colors.white,
-                    height: 50,
-                    width: 50,
+                    width: 70,
                     child: Image.network(
                       list[index].img,
-                      fit: BoxFit.cover,
+                      fit: BoxFit.fill,
                     ),
                   ),
+                  const SizedBox(
+                    width: 10,
+                  ),
                   SizedBox(
-                    width: 100,
+                    width: 80,
                     child: Text(
                       list[index].song_tittle,
                       maxLines: 2,
                       softWrap: true,
-                      style: const TextStyle(color: Colors.white, fontSize: 18),
+                      style: const TextStyle(color: Colors.white, fontSize: 16),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 30,
+                    child: Icon(
+                      Icons.more_horiz,
+                      color: Colors.green.shade700,
+                      size: 20,
                     ),
                   )
                 ],
