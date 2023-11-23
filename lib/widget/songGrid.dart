@@ -47,13 +47,10 @@ class SongGrid extends StatelessWidget {
                       style: const TextStyle(color: Colors.white, fontSize: 16),
                     ),
                   ),
-                  SizedBox(
-                    width: 30,
-                    child: Icon(
-                      Icons.more_horiz,
-                      color: Colors.green.shade700,
-                      size: 20,
-                    ),
+                  Icon(
+                    Icons.more_horiz,
+                    color: Colors.green.shade700,
+                    size: 20,
                   )
                 ],
               ),

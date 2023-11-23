@@ -1,147 +1,94 @@
 import 'package:flutter/material.dart';
 import 'package:music_player/const.dart';
-import 'package:music_player/widget/categoryList.dart';
-import 'package:music_player/widget/horizontalList.dart';
-import 'package:music_player/widget/songGrid.dart';
+import 'package:music_player/pages/page1.dart';
+import 'package:music_player/pages/page2.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({
     super.key,
   });
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: SafeArea(
-        child: Scaffold(
-          backgroundColor: backgroundColor,
-          body: Padding(
-            padding: const EdgeInsets.only(top: 15.0, right: 10, left: 10),
-            child: CustomScrollView(
-              slivers: [
-                const CustomAppBar(),
-                SliverList(
-                  delegate: SliverChildBuilderDelegate(
-                    (_, int index) {
-                      return Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const SizedBox(
-                            height: 25,
-                          ),
-                          SongGrid(
-                            list: Slist,
-                          ),
-                          const SizedBox(
-                            height: 25,
-                          ),
-                          HorizontalList(tittle: "Your Shows", songList: Slist),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          HorizontalList(tittle: "Your Liked", songList: Slist),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          HorizontalList(
-                              tittle: "Recent Played", songList: Slist),
-                          const SizedBox(
-                            height: 25,
-                          ),
-                          HorizontalList(tittle: "Your Shows", songList: Slist),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          HorizontalList(tittle: "Your Liked", songList: Slist),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          HorizontalList(
-                              tittle: "Recent Played", songList: Slist),
-                        ],
-                      );
-                    },
-                    childCount: 1,
-                  ),
-                )
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
+  State<HomePage> createState() => _HomePageState();
 }
 
-class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({
-    super.key,
-  });
+class _HomePageState extends State<HomePage> {
+  int selected_page = 0;
+
+  List<Widget> PageList = [
+    Page1(),
+    Page2(),
+    Container(),
+    Container(),
+    Container(),
+  ];
 
   @override
   Widget build(BuildContext context) {
-    return SliverAppBar(
-      backgroundColor: backgroundColor,
-      pinned: true,
-      snap: true,
-      floating: true,
-      flexibleSpace: const FlexibleSpaceBar(
-        expandedTitleScale: 1,
-        titlePadding: EdgeInsets.only(bottom: 10, left: 0),
-        title: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Flexible(
-              child: SizedBox(
-                height: 90,
-              ),
-            ),
-            categoryList(),
-          ],
-        ),
-        background: Padding(
-          padding: EdgeInsets.only(top: 20.0, left: 10, right: 10),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                "Good Evening",
-                style: TextStyle(
-                    fontSize: 25,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold),
-              ),
-              SizedBox(
-                width: 150,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Icon(
-                      Icons.notifications_none_outlined,
-                      size: 30,
-                      color: Colors.white,
-                    ),
-                    Icon(
-                      Icons.history,
-                      size: 30,
-                      color: Colors.white,
-                    ),
-                    Icon(
-                      Icons.settings,
-                      size: 30,
-                      color: Colors.white,
-                    )
-                  ],
+    return MaterialApp(
+      theme: ThemeData(
+        splashColor: Colors.transparent,
+        highlightColor: Colors.transparent,
+        hoverColor: Colors.transparent,
+      ),
+      debugShowCheckedModeBanner: false,
+      home: SafeArea(
+        child: Scaffold(
+          extendBody: true,
+          backgroundColor: backgroundColor,
+          body: PageList[selected_page],
+          bottomNavigationBar: BottomNavigationBar(
+            backgroundColor: backgroundColor.withOpacity(0.8),
+            type: BottomNavigationBarType.fixed,
+            elevation: 0,
+            items: const [
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.home_filled,
                 ),
-              )
+                label: 'Home',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.search,
+                ),
+                label: 'search',
+              ),
+              BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.playlist_play_rounded,
+                  ),
+                  label: 'Your Library'),
+              BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.book,
+                  ),
+                  label: 'premium'),
             ],
+            currentIndex: selected_page,
+            onTap: (int index) {
+              setState(
+                () {
+                  selected_page = index;
+                },
+              );
+            },
+            selectedIconTheme: IconThemeData(size: 30, color: Colors.white),
+            unselectedIconTheme:
+                IconThemeData(size: 30, color: Colors.grey.shade600),
+            selectedLabelStyle: const TextStyle(
+              fontSize: 10,
+              fontWeight: FontWeight.bold,
+            ),
+            selectedItemColor: Colors.white,
+            unselectedItemColor: Colors.grey.shade600,
+            unselectedLabelStyle: const TextStyle(
+              fontSize: 10,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
       ),
-      expandedHeight: 110,
     );
   }
 }
