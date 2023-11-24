@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-
 import 'package:music_player/const.dart';
 import 'package:music_player/widget/categoryList.dart';
 import 'package:music_player/widget/horizontalList.dart';
 import 'package:music_player/widget/songGrid.dart';
+
 
 class Page1 extends StatelessWidget {
   const Page1({

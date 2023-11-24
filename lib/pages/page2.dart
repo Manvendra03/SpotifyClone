@@ -1,23 +1,96 @@
 import 'package:flutter/material.dart';
 import 'package:music_player/const.dart';
-import 'package:music_player/pages/page1.dart';
-import 'package:music_player/widget/categoryList.dart';
-import 'package:music_player/widget/horizontalList.dart';
-import 'package:music_player/widget/songGrid.dart';
 
 class Page2 extends StatelessWidget {
   const Page2({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        color: backgroundColor,
-        child: const CustomScrollView(
-          slivers: [
-            CustomAppBarr(),
-          ],
-        ),
+    return Container(
+      color: backgroundColor,
+      child: CustomScrollView(
+        slivers: [
+          const CustomAppBarr(),
+          SliverList(
+              delegate: SliverChildBuilderDelegate(
+            childCount: 1,
+            (context, index) {
+              return Padding(
+                padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      "Browser all ",
+                      style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    Container(
+                      height: MediaQuery.of(context).size.height,
+                      child: GridView.builder(
+                          physics: const NeverScrollableScrollPhysics(),
+                          itemCount: category_tile_List.length,
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 2,
+                                  childAspectRatio: 1.7,
+                                  crossAxisSpacing: 12,
+                                  mainAxisSpacing: 12),
+                          itemBuilder: (context, index) {
+                            return Container(
+                              padding: const EdgeInsets.only(top: 10, left: 10),
+                              decoration: BoxDecoration(
+                                  color:
+                                      tile_colors[index % tile_colors.length],
+                                  borderRadius: BorderRadius.circular(5)),
+                              child: Stack(
+                                children: [
+                                  Text(
+                                    category_tile_List[index].tittle,
+                                    style: const TextStyle(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white),
+                                  ),
+                                  Positioned(
+                                    right: -35,
+                                    bottom: -8,
+                                    child: Transform.rotate(
+                                      angle: .5,
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                            color: Colors.grey.shade300,
+                                            borderRadius:
+                                                BorderRadius.circular(10)),
+                                        height: 80,
+                                        width: 100,
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          child: Image.network(
+                                            category_tile_List[index].img_url,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            );
+                          }),
+                    ),
+                  ],
+                ),
+              );
+            },
+          ))
+        ],
       ),
     );
   }
@@ -35,62 +108,91 @@ class CustomAppBarr extends StatelessWidget {
       pinned: true,
       snap: true,
       floating: true,
-      flexibleSpace: const FlexibleSpaceBar(
+      flexibleSpace: FlexibleSpaceBar(
         expandedTitleScale: 1,
-        titlePadding: EdgeInsets.only(bottom: 10, left: 0),
+        titlePadding: const EdgeInsets.only(bottom: 10, left: 0),
         title: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Flexible(
+            const Flexible(
               child: SizedBox(
-                height: 90,
+                height: 100,
               ),
             ),
-            categoryList(),
+            Container(
+              height: 40,
+              width: double.infinity,
+              padding: const EdgeInsets.symmetric(
+                horizontal: 10,
+              ),
+              margin: const EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(4),
+                color: Colors.white,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  const Icon(Icons.search),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Text(
+                    "What do you want to listen to?",
+                    style: TextStyle(
+                        color: Colors.grey.shade800,
+                        fontSize: 13,
+                        fontWeight: FontWeight.bold),
+                  )
+                ],
+              ),
+            )
           ],
         ),
-        background: Padding(
-          padding: EdgeInsets.only(top: 20.0, left: 10, right: 10),
+        background: Container(
+          padding: EdgeInsets.only(top: 40, left: 20, right: 20),
+          alignment: Alignment.topLeft,
           child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                "Good Evening",
-                style: TextStyle(
-                    fontSize: 25,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  CircleAvatar(
+                    radius: 18,
+                    backgroundColor: Colors.pink.shade200,
+                    child: Text(
+                      "M",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 19,
+                          color: Colors.black),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  const Text(
+                    "Search",
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
+                  ),
+                ],
               ),
-              SizedBox(
-                width: 150,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Icon(
-                      Icons.notifications_none_outlined,
-                      size: 30,
-                      color: Colors.white,
-                    ),
-                    Icon(
-                      Icons.history,
-                      size: 30,
-                      color: Colors.white,
-                    ),
-                    Icon(
-                      Icons.settings,
-                      size: 30,
-                      color: Colors.white,
-                    )
-                  ],
-                ),
+              Icon(
+                Icons.camera_alt_outlined,
+                color: Colors.white,
+                size: 25,
               )
             ],
           ),
         ),
       ),
-      expandedHeight: 110,
+      expandedHeight: 150,
     );
   }
 }
