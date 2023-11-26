@@ -16,7 +16,7 @@ class Page2 extends StatelessWidget {
             childCount: 1,
             (context, index) {
               return Padding(
-                padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
+                padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -31,7 +31,7 @@ class Page2 extends StatelessWidget {
                       height: 15,
                     ),
                     Container(
-                      height: MediaQuery.of(context).size.height,
+                      height: MediaQuery.of(context).size.height * 10,
                       child: GridView.builder(
                           physics: const NeverScrollableScrollPhysics(),
                           itemCount: category_tile_List.length,
@@ -126,7 +126,7 @@ class CustomAppBarr extends StatelessWidget {
               padding: const EdgeInsets.symmetric(
                 horizontal: 10,
               ),
-              margin: const EdgeInsets.symmetric(horizontal: 20),
+              margin: const EdgeInsets.symmetric(horizontal: 10),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(4),
                 color: Colors.white,
@@ -151,7 +151,7 @@ class CustomAppBarr extends StatelessWidget {
           ],
         ),
         background: Container(
-          padding: EdgeInsets.only(top: 40, left: 20, right: 20),
+          padding: EdgeInsets.only(top: 40, left: 10, right: 10),
           alignment: Alignment.topLeft,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,

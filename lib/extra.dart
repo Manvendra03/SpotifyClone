@@ -1,52 +1,126 @@
-// Row(
-//                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                       children: [
-//                         Text(
-//                           "Good Evening",
-//                           style: TextStyle(
-//                               fontSize: 25,
-//                               color: Colors.white,
-//                               fontWeight: FontWeight.bold),
-//                         ),
-//                         SizedBox(
-//                           width: 150,
-//                           child: Row(
-//                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-//                             children: [
-//                               Icon(
-//                                 Icons.notifications_none_outlined,
-//                                 size: 30,
-//                                 color: Colors.white,
-//                               ),
-//                               Icon(
-//                                 Icons.history,
-//                                 size: 30,
-//                                 color: Colors.white,
-//                               ),
-//                               Icon(
-//                                 Icons.settings,
-//                                 size: 30,
-//                                 color: Colors.white,
-//                               )
-//                             ],
+//  Padding(
+//       padding: EdgeInsets.only(top: 20),
+//       child: Scaffold(
+//         backgroundColor: backgroundColor,
+//         appBar: AppBar(
+//           elevation: 3,
+//           leadingWidth: 50,
+//           backgroundColor: backgroundColor,
+//           leading: Row(
+//             mainAxisAlignment: MainAxisAlignment.end,
+//             children: [
+//               CircleAvatar(
+//                 radius: 16,
+//                 backgroundColor: Colors.pink.shade200,
+//                 child: const Text(
+//                   "M",
+//                   style: TextStyle(
+//                       fontWeight: FontWeight.bold,
+//                       fontSize: 18,
+//                       color: Colors.black),
+//                 ),
+//               ),
+//             ],
+//           ),
+//           title: const Text(
+//             "Your Library",
+//             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+//           ),
+//           actions: const [
+//             Icon(
+//               Icons.search,
+//               size: 27,
+//             ),
+//             SizedBox(
+//               width: 20,
+//             ),
+//             Icon(
+//               Icons.add,
+//               size: 27,
+//             ),
+//             SizedBox(
+//               width: 15,
+//             ),
+//           ],
+//           bottom: PreferredSize(
+//             preferredSize: const Size.fromHeight(50.0),
+//             child: Container(
+//               margin: EdgeInsets.only(bottom: 15),
+//               padding: EdgeInsets.symmetric(horizontal: 10),
+//               child: SizedBox(
+//                 height: 30,
+//                 child: ListView.builder(
+//                   scrollDirection: Axis.horizontal,
+//                   itemCount: category.length,
+//                   itemBuilder: (BuildContext context, int index) {
+//                     return Container(
+//                       padding: const EdgeInsets.symmetric(
+//                           horizontal: 15, vertical: 6),
+//                       margin: const EdgeInsets.symmetric(
+//                         horizontal: 5,
+//                       ),
+//                       height: 30,
+//                       decoration: BoxDecoration(
+//                           color: const Color.fromARGB(255, 49, 48, 48),
+//                           borderRadius: BorderRadius.circular(15)),
+//                       child: Center(
+//                         child: Text(
+//                           category[index],
+//                           style: const TextStyle(
+//                             color: Colors.white,
+//                             fontSize: 17,
 //                           ),
-//                         )
-//                       ],
-//                     ),
-
-
-
-
-
-//                     tittke:ArgumentError
-
-//                     Column(
-//                       crossAxisAlignment: CrossAxisAlignment.start,
-//                       children: [
-//                         SizedBox(
-//                           height: 25,
 //                         ),
-//                         //// categories column /////
-//                         categoryList(),
-//                       ],
-//                     ),
+//                       ),
+//                     );
+//                   },
+//                 ),
+//               ),
+//             ),
+//           ),
+//         ),
+//         body: Padding(
+//           padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
+//           child: SingleChildScrollView(
+//             child: SizedBox(
+//               height: MediaQuery.of(context).size.height - 160,
+//               child: ListView.builder(
+//                   itemCount: 40,
+//                   itemBuilder: (context, index) {
+//                     return Container(
+//                       margin: EdgeInsets.only(top: 15),
+//                       child: Row(children: [
+//                         Container(
+//                             height: 60,
+//                             width: 60,
+//                             child: Image.network(
+//                                 "https://i.scdn.co/image/ab67616d0000b2730f29b052ea18eb757ec7ca9a")),
+//                         SizedBox(
+//                           width: 15,
+//                         ),
+//                         Column(
+//                           crossAxisAlignment: CrossAxisAlignment.start,
+//                           children: [
+//                             Text(
+//                               "Arijit Sing Broken Strings",
+//                               style:
+//                                   TextStyle(color: Colors.white, fontSize: 13),
+//                             ),
+//                             SizedBox(
+//                               height: 5,
+//                             ),
+//                             Text(
+//                               "Playlist . Pranjal.sankat",
+//                               style: TextStyle(
+//                                   color: Colors.grey.shade500, fontSize: 12),
+//                             ),
+//                           ],
+//                         ),
+//                       ]),
+//                     );
+//                   }),
+//             ),
+//           ),
+//         ),
+//       ),
+//     );

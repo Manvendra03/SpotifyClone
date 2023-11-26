@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:music_player/const.dart';
 import 'package:music_player/pages/page1.dart';
 import 'package:music_player/pages/page2.dart';
+import 'package:music_player/pages/page3.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
@@ -18,8 +19,7 @@ class _HomePageState extends State<HomePage> {
   List<Widget> PageList = [
     Page1(),
     Page2(),
-    Container(),
-    Container(),
+    Page3(),
     Container(),
   ];
 
@@ -41,28 +41,28 @@ class _HomePageState extends State<HomePage> {
             backgroundColor: backgroundColor.withOpacity(0.8),
             type: BottomNavigationBarType.fixed,
             elevation: 0,
-            items: const [
-              BottomNavigationBarItem(
+            items: [
+              const BottomNavigationBarItem(
                 icon: Icon(
                   Icons.home_filled,
                 ),
                 label: 'Home',
               ),
-              BottomNavigationBarItem(
+              const BottomNavigationBarItem(
                 icon: Icon(
                   Icons.search,
                 ),
                 label: 'search',
               ),
-              BottomNavigationBarItem(
+              const BottomNavigationBarItem(
                   icon: Icon(
                     Icons.playlist_play_rounded,
                   ),
                   label: 'Your Library'),
               BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.book,
-                  ),
+                  icon: Image.asset(selected_page == 3
+                      ? "assets/i1_white.png"
+                      : "assets/i1_grey.png"),
                   label: 'premium'),
             ],
             currentIndex: selected_page,
@@ -73,9 +73,10 @@ class _HomePageState extends State<HomePage> {
                 },
               );
             },
-            selectedIconTheme: IconThemeData(size: 30, color: Colors.white),
-            unselectedIconTheme:
-                IconThemeData(size: 30, color: Colors.grey.shade600),
+            selectedIconTheme:
+                const IconThemeData(size: 30, color: Colors.white),
+            unselectedIconTheme: const IconThemeData(
+                size: 30, color: Color.fromRGBO(117, 117, 117, 1)),
             selectedLabelStyle: const TextStyle(
               fontSize: 10,
               fontWeight: FontWeight.bold,
