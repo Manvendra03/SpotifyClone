@@ -3,6 +3,7 @@ import 'package:music_player/const.dart';
 import 'package:music_player/pages/page1.dart';
 import 'package:music_player/pages/page2.dart';
 import 'package:music_player/pages/page3.dart';
+import 'package:music_player/pages/page4.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
@@ -20,7 +21,7 @@ class _HomePageState extends State<HomePage> {
     Page1(),
     Page2(),
     Page3(),
-    Container(),
+    Page4(),
   ];
 
   @override

@@ -1,126 +1,77 @@
-//  Padding(
-//       padding: EdgeInsets.only(top: 20),
-//       child: Scaffold(
-//         backgroundColor: backgroundColor,
-//         appBar: AppBar(
-//           elevation: 3,
-//           leadingWidth: 50,
-//           backgroundColor: backgroundColor,
-//           leading: Row(
-//             mainAxisAlignment: MainAxisAlignment.end,
-//             children: [
-//               CircleAvatar(
-//                 radius: 16,
-//                 backgroundColor: Colors.pink.shade200,
-//                 child: const Text(
-//                   "M",
-//                   style: TextStyle(
-//                       fontWeight: FontWeight.bold,
-//                       fontSize: 18,
-//                       color: Colors.black),
+// //  const Text(
+// //                       "Browser all ",
+// //                       style: TextStyle(
+// //                           fontSize: 15,
+// //                           color: Colors.white,
+// //                           fontWeight: FontWeight.bold),
+// //                     ),
+// //                     const SizedBox(
+// //                       height: 15,
+// //                     ),
+
+
+
+
+
+// Padding(
+//                 padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
+//                 child: Column(
+//                   crossAxisAlignment: CrossAxisAlignment.start,
+//                   children: [
+//                     Container(
+//                       height: MediaQuery.of(context).size.height * 10,
+//                       child: GridView.builder(
+//                           physics: const NeverScrollableScrollPhysics(),
+//                           itemCount: category_tile_List.length,
+//                           gridDelegate:
+//                               const SliverGridDelegateWithFixedCrossAxisCount(
+//                                   crossAxisCount: 2,
+//                                   childAspectRatio: 1.7,
+//                                   crossAxisSpacing: 12,
+//                                   mainAxisSpacing: 12),
+//                           itemBuilder: (context, index) {
+//                             return Container(
+//                               padding: const EdgeInsets.only(top: 10, left: 10),
+//                               decoration: BoxDecoration(
+//                                   color:
+//                                       tile_colors[index % tile_colors.length],
+//                                   borderRadius: BorderRadius.circular(5)),
+//                               child: Stack(
+//                                 children: [
+//                                   Text(
+//                                     category_tile_List[index].tittle,
+//                                     style: const TextStyle(
+//                                         fontSize: 15,
+//                                         fontWeight: FontWeight.bold,
+//                                         color: Colors.white),
+//                                   ),
+//                                   Positioned(
+//                                     right: -35,
+//                                     bottom: -8,
+//                                     child: Transform.rotate(
+//                                       angle: .5,
+//                                       child: Container(
+//                                         decoration: BoxDecoration(
+//                                             color: Colors.grey.shade300,
+//                                             borderRadius:
+//                                                 BorderRadius.circular(10)),
+//                                         height: 80,
+//                                         width: 100,
+//                                         child: ClipRRect(
+//                                           borderRadius:
+//                                               BorderRadius.circular(10),
+//                                           child: Image.network(
+//                                             category_tile_List[index].img_url,
+//                                             fit: BoxFit.cover,
+//                                           ),
+//                                         ),
+//                                       ),
+//                                     ),
+//                                   )
+//                                 ],
+//                               ),
+//                             );
+//                           }),
+//                     ),
+//                   ],
 //                 ),
-//               ),
-//             ],
-//           ),
-//           title: const Text(
-//             "Your Library",
-//             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-//           ),
-//           actions: const [
-//             Icon(
-//               Icons.search,
-//               size: 27,
-//             ),
-//             SizedBox(
-//               width: 20,
-//             ),
-//             Icon(
-//               Icons.add,
-//               size: 27,
-//             ),
-//             SizedBox(
-//               width: 15,
-//             ),
-//           ],
-//           bottom: PreferredSize(
-//             preferredSize: const Size.fromHeight(50.0),
-//             child: Container(
-//               margin: EdgeInsets.only(bottom: 15),
-//               padding: EdgeInsets.symmetric(horizontal: 10),
-//               child: SizedBox(
-//                 height: 30,
-//                 child: ListView.builder(
-//                   scrollDirection: Axis.horizontal,
-//                   itemCount: category.length,
-//                   itemBuilder: (BuildContext context, int index) {
-//                     return Container(
-//                       padding: const EdgeInsets.symmetric(
-//                           horizontal: 15, vertical: 6),
-//                       margin: const EdgeInsets.symmetric(
-//                         horizontal: 5,
-//                       ),
-//                       height: 30,
-//                       decoration: BoxDecoration(
-//                           color: const Color.fromARGB(255, 49, 48, 48),
-//                           borderRadius: BorderRadius.circular(15)),
-//                       child: Center(
-//                         child: Text(
-//                           category[index],
-//                           style: const TextStyle(
-//                             color: Colors.white,
-//                             fontSize: 17,
-//                           ),
-//                         ),
-//                       ),
-//                     );
-//                   },
-//                 ),
-//               ),
-//             ),
-//           ),
-//         ),
-//         body: Padding(
-//           padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
-//           child: SingleChildScrollView(
-//             child: SizedBox(
-//               height: MediaQuery.of(context).size.height - 160,
-//               child: ListView.builder(
-//                   itemCount: 40,
-//                   itemBuilder: (context, index) {
-//                     return Container(
-//                       margin: EdgeInsets.only(top: 15),
-//                       child: Row(children: [
-//                         Container(
-//                             height: 60,
-//                             width: 60,
-//                             child: Image.network(
-//                                 "https://i.scdn.co/image/ab67616d0000b2730f29b052ea18eb757ec7ca9a")),
-//                         SizedBox(
-//                           width: 15,
-//                         ),
-//                         Column(
-//                           crossAxisAlignment: CrossAxisAlignment.start,
-//                           children: [
-//                             Text(
-//                               "Arijit Sing Broken Strings",
-//                               style:
-//                                   TextStyle(color: Colors.white, fontSize: 13),
-//                             ),
-//                             SizedBox(
-//                               height: 5,
-//                             ),
-//                             Text(
-//                               "Playlist . Pranjal.sankat",
-//                               style: TextStyle(
-//                                   color: Colors.grey.shade500, fontSize: 12),
-//                             ),
-//                           ],
-//                         ),
-//                       ]),
-//                     );
-//                   }),
-//             ),
-//           ),
-//         ),
-//       ),
-//     );
