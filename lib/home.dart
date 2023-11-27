@@ -22,6 +22,7 @@ class _HomePageState extends State<HomePage> {
     Page2(),
     Page3(),
     Page4(),
+    // MusicPlayer(),
   ];
 
   @override

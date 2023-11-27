@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:music_player/models/song.dart';
+import 'package:music_player/music_player_screen.dart';
 
 class SongGrid extends StatelessWidget {
   final List<Song> list;
@@ -19,40 +20,52 @@ class SongGrid extends StatelessWidget {
               childAspectRatio: 3.1,
               crossAxisCount: 2),
           itemBuilder: (context, index) {
-            return Container(
-              decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 49, 48, 48),
-                  borderRadius: BorderRadius.circular(5)),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    color: Colors.white,
-                    width: 70,
-                    child: Image.network(
-                      list[index].img,
-                      fit: BoxFit.fill,
+            return GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => MusicPlayerScreen(
+                            curr: list[index],
+                          )),
+                );
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 49, 48, 48),
+                    borderRadius: BorderRadius.circular(5)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      color: Colors.white,
+                      width: 70,
+                      child: Image.network(
+                        list[index].img,
+                        fit: BoxFit.fill,
+                      ),
                     ),
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  SizedBox(
-                    width: 80,
-                    child: Text(
-                      list[index].song_tittle,
-                      maxLines: 2,
-                      softWrap: true,
-                      style: const TextStyle(color: Colors.white, fontSize: 16),
+                    const SizedBox(
+                      width: 10,
                     ),
-                  ),
-                  Icon(
-                    Icons.more_horiz,
-                    color: Colors.green.shade700,
-                    size: 20,
-                  )
-                ],
+                    SizedBox(
+                      width: 80,
+                      child: Text(
+                        list[index].song_tittle,
+                        maxLines: 2,
+                        softWrap: true,
+                        style:
+                            const TextStyle(color: Colors.white, fontSize: 16),
+                      ),
+                    ),
+                    Icon(
+                      Icons.more_horiz,
+                      color: Colors.green.shade700,
+                      size: 20,
+                    )
+                  ],
+                ),
               ),
             );
           }),

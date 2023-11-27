@@ -4,7 +4,6 @@ import 'package:music_player/widget/categoryList.dart';
 import 'package:music_player/widget/horizontalList.dart';
 import 'package:music_player/widget/songGrid.dart';
 
-
 class Page1 extends StatelessWidget {
   const Page1({
     super.key,
@@ -74,10 +73,10 @@ class CustomAppBar extends StatelessWidget {
       pinned: true,
       snap: true,
       floating: true,
-      flexibleSpace: const FlexibleSpaceBar(
+      flexibleSpace: FlexibleSpaceBar(
         expandedTitleScale: 1,
-        titlePadding: EdgeInsets.only(bottom: 10, left: 0),
-        title: Column(
+        titlePadding: const EdgeInsets.only(bottom: 10, left: 0),
+        title: const Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -90,12 +89,15 @@ class CustomAppBar extends StatelessWidget {
           ],
         ),
         background: Padding(
-          padding: EdgeInsets.only(top: 20.0, left: 10, right: 10),
+          padding: const EdgeInsets.only(
+            top: 20.0,
+            left: 10,
+          ),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
+              const Text(
                 "Good Evening",
                 style: TextStyle(
                     fontSize: 25,
@@ -105,23 +107,35 @@ class CustomAppBar extends StatelessWidget {
               SizedBox(
                 width: 150,
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.notifications_none_outlined,
                       size: 30,
                       color: Colors.white,
                     ),
-                    Icon(
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    const Icon(
                       Icons.history,
                       size: 30,
                       color: Colors.white,
                     ),
-                    Icon(
-                      Icons.settings,
-                      size: 30,
-                      color: Colors.white,
-                    )
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    CircleAvatar(
+                      radius: 15,
+                      backgroundColor: Colors.pink.shade200,
+                      child: const Text(
+                        "M",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 19,
+                            color: Colors.black),
+                      ),
+                    ),
                   ],
                 ),
               )
