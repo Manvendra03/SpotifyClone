@@ -3,6 +3,7 @@ import 'package:music_player/models/category_tile.dart';
 import 'package:music_player/models/song.dart';
 
 Color backgroundColor = Color.fromARGB(255, 24, 24, 24);
+Color spotify_green = Colors.green;
 
 List<String> category = ["Music", "Podcasts", "Punjabi", "Bollywood", "Rock"];
 

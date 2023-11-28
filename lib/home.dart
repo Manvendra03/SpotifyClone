@@ -4,6 +4,7 @@ import 'package:music_player/pages/page1.dart';
 import 'package:music_player/pages/page2.dart';
 import 'package:music_player/pages/page3.dart';
 import 'package:music_player/pages/page4.dart';
+import 'package:music_player/playlist_screen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
@@ -22,6 +23,7 @@ class _HomePageState extends State<HomePage> {
     Page2(),
     Page3(),
     Page4(),
+    // PlaylistScreen()
     // MusicPlayer(),
   ];
 

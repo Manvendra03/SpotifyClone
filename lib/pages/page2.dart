@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:music_player/const.dart';
-import 'package:music_player/models/category_tile.dart';
 
 class Page2 extends StatelessWidget {
   const Page2({super.key});
@@ -60,6 +59,7 @@ class Page2 extends StatelessWidget {
                   ),
                 );
               })
+          
         ],
       ),
     );

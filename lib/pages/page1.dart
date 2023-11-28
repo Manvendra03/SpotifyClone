@@ -11,19 +11,19 @@ class Page1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 15.0, right: 10, left: 10),
-      child: CustomScrollView(
-        slivers: [
-          const CustomAppBar(),
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (_, int index) {
-                return Column(
+    return CustomScrollView(
+      slivers: [
+        const CustomAppBar(),
+        SliverList(
+          delegate: SliverChildBuilderDelegate(
+            (_, int index) {
+              return Padding(
+                padding: const EdgeInsets.only(right: 10, left: 10),
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const SizedBox(
-                      height: 25,
+                      height: 15,
                     ),
                     SongGrid(
                       list: Slist,
@@ -50,13 +50,13 @@ class Page1 extends StatelessWidget {
                     ),
                     HorizontalList(tittle: "Recent Played", songList: Slist),
                   ],
-                );
-              },
-              childCount: 1,
-            ),
-          )
-        ],
-      ),
+                ),
+              );
+            },
+            childCount: 1,
+          ),
+        )
+      ],
     );
   }
 }
@@ -75,24 +75,21 @@ class CustomAppBar extends StatelessWidget {
       floating: true,
       flexibleSpace: FlexibleSpaceBar(
         expandedTitleScale: 1,
-        titlePadding: const EdgeInsets.only(bottom: 10, left: 0),
-        title: const Column(
+        titlePadding: const EdgeInsets.only(bottom: 10, left: 10, right: 10),
+        title: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Flexible(
+            const Flexible(
               child: SizedBox(
-                height: 90,
+                height: 110,
               ),
             ),
             categoryList(),
           ],
         ),
         background: Padding(
-          padding: const EdgeInsets.only(
-            top: 20.0,
-            left: 10,
-          ),
+          padding: const EdgeInsets.only(left: 20, top: 25, right: 20),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -143,7 +140,7 @@ class CustomAppBar extends StatelessWidget {
           ),
         ),
       ),
-      expandedHeight: 110,
+      expandedHeight: 120,
     );
   }
 }
