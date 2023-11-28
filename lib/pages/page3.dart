@@ -96,13 +96,13 @@ class Page3 extends StatelessWidget {
                     itemCount: Slist.length,
                     itemBuilder: (context, index) {
                       return Container(
-                        margin: EdgeInsets.only(top: 15),
+                        margin: const EdgeInsets.only(top: 15),
                         child: Row(children: [
-                          Container(
+                          SizedBox(
                               height: 60,
                               width: 60,
                               child: Image.network(Slist[index].img)),
-                          SizedBox(
+                          const SizedBox(
                             width: 15,
                           ),
                           Column(
@@ -110,10 +110,10 @@ class Page3 extends StatelessWidget {
                             children: [
                               Text(
                                 Slist[index].song_tittle,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     color: Colors.white, fontSize: 13),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 5,
                               ),
                               Text(

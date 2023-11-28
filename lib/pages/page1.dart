@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:music_player/const.dart';
+import 'package:music_player/profile_screen.dart';
 import 'package:music_player/widget/categoryList.dart';
 import 'package:music_player/widget/horizontalList.dart';
 import 'package:music_player/widget/songGrid.dart';
@@ -23,14 +24,17 @@ class Page1 extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const SizedBox(
-                      height: 15,
+                      height: 20,
                     ),
                     SongGrid(
                       list: Slist,
                     ),
-                    HorizontalList(tittle: "Your Shows", songList: Slist),
                     const SizedBox(
                       height: 10,
+                    ),
+                    HorizontalList(tittle: "Your Shows", songList: Slist),
+                    const SizedBox(
+                      height: 20,
                     ),
                     HorizontalList(tittle: "Your Liked", songList: Slist),
                     const SizedBox(
@@ -69,6 +73,7 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
+      automaticallyImplyLeading: false,
       backgroundColor: backgroundColor,
       pinned: true,
       snap: true,
@@ -122,15 +127,20 @@ class CustomAppBar extends StatelessWidget {
                     const SizedBox(
                       width: 15,
                     ),
-                    CircleAvatar(
-                      radius: 15,
-                      backgroundColor: Colors.pink.shade200,
-                      child: const Text(
-                        "M",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 19,
-                            color: Colors.black),
+                    GestureDetector(
+                      onTap: () {
+                        Scaffold.of(context).openDrawer();
+                      },
+                      child: CircleAvatar(
+                        radius: 15,
+                        backgroundColor: Colors.pink.shade200,
+                        child: const Text(
+                          "M",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 19,
+                              color: Colors.black),
+                        ),
                       ),
                     ),
                   ],

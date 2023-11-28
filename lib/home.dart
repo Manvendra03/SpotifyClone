@@ -1,3 +1,4 @@
+import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:music_player/const.dart';
 import 'package:music_player/pages/page1.dart';
@@ -40,7 +41,19 @@ class _HomePageState extends State<HomePage> {
         child: Scaffold(
           extendBody: true,
           backgroundColor: backgroundColor,
-          body: PageList[selected_page],
+          // body: PageList[selected_page],
+          body: PageTransitionSwitcher(
+            child: PageList[selected_page],
+            duration: Duration(milliseconds: 700),
+            transitionBuilder: (child, primary, secoundary) =>
+                FadeThroughTransition(
+              fillColor: backgroundColor,
+              animation: primary,
+              secondaryAnimation: secoundary,
+              child: child,
+            ),
+          ),
+
           bottomNavigationBar: BottomNavigationBar(
             backgroundColor: backgroundColor.withOpacity(0.8),
             type: BottomNavigationBarType.fixed,
