@@ -39,6 +39,9 @@ class _HomePageState extends State<HomePage> {
       debugShowCheckedModeBanner: false,
       home: SafeArea(
         child: Scaffold(
+          endDrawer: Drawer(
+            width: 250,
+          ),
           extendBody: true,
           backgroundColor: backgroundColor,
           // body: PageList[selected_page],

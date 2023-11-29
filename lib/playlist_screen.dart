@@ -7,38 +7,137 @@ class PlaylistScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      // padding: const EdgeInsets.only(bottom: 50),
       height: MediaQuery.of(context).size.height,
       width: double.infinity,
+      color: backgroundColor,
       child: CustomScrollView(
         slivers: [
           SliverAppBar(
+            toolbarHeight: 100,
+            elevation: 0,
+            automaticallyImplyLeading: false,
             backgroundColor: backgroundColor,
             pinned: true,
             snap: true,
             floating: true,
             flexibleSpace: FlexibleSpaceBar(
-              expandedTitleScale: 4,
-              title: Container(
-                width: double.infinity,
-                // color: Colors.yellowAccent,
-                padding: EdgeInsets.symmetric(vertical: 20),
-                height: 50,
-                child: Text(
-                  "Top most streamed songs on  Spotify",
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                expandedTitleScale: 1,
+                titlePadding:
+                    const EdgeInsets.only(bottom: 10, left: 20, right: 10),
+                title: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Flexible(
+                      child: SizedBox(
+                        height: 180,
+                      ),
+                    ),
+                    const Text(
+                      "Music",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 30,
+                      ),
+                    ),
+                    Container(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "144 songs",
+                            style: TextStyle(fontSize: 15, color: Colors.grey),
+                          ),
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.shuffle,
+                                color: spotify_green,
+                                size: 30,
+                              ),
+                              SizedBox(
+                                width: 20,
+                              ),
+                              Icon(
+                                Icons.play_circle,
+                                size: 35,
+                                color: spotify_green,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
                 ),
-              ),
-              background: Container(
-                alignment: Alignment.center,
-                child: Container(
-                  height: 200,
-                  width: 200,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-            expandedHeight: 300,
+                background: Flexible(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          // backgroundColor,
+                          Color.fromARGB(255, 46, 39, 176), backgroundColor,
+                        ],
+                      ),
+                    ),
+                  ),
+                )),
+            expandedHeight: 250,
           ),
+          SliverList.builder(
+              itemBuilder: (context, index) {
+                return Container(
+                  margin: const EdgeInsets.only(
+                    top: 15,
+                  ),
+                  child: Row(children: [
+                    SizedBox(
+                        height: 60,
+                        width: 60,
+                        child: Image.network(Slist[index].img)),
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    Flexible(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            child: Text(
+                              Slist[index].song_tittle,
+                              softWrap: true,
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 1,
+                              style: const TextStyle(
+                                color: Colors.white,
+                                decoration: TextDecoration.none,
+                                fontSize: 13,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          Text(
+                            Slist[index].singer_names,
+                            softWrap: true,
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 1,
+                            style: TextStyle(
+                                decoration: TextDecoration.none,
+                                color: Colors.grey.shade500,
+                                fontSize: 12),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ]),
+                );
+              },
+              itemCount: Slist.length),
         ],
       ),
     );

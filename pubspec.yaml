@@ -38,6 +38,7 @@ dependencies:
   audio_video_progress_bar: ^2.0.1
   auto_size_text: ^3.0.0
   animations: ^2.0.8
+  just_audio: ^0.9.36
 
 dev_dependencies:
   flutter_test:

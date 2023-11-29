@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:music_player/const.dart';
-import 'package:music_player/profile_screen.dart';
 import 'package:music_player/widget/categoryList.dart';
 import 'package:music_player/widget/horizontalList.dart';
 import 'package:music_player/widget/songGrid.dart';
@@ -73,6 +72,7 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
+      actions: [Container()],
       automaticallyImplyLeading: false,
       backgroundColor: backgroundColor,
       pinned: true,
@@ -81,11 +81,11 @@ class CustomAppBar extends StatelessWidget {
       flexibleSpace: FlexibleSpaceBar(
         expandedTitleScale: 1,
         titlePadding: const EdgeInsets.only(bottom: 10, left: 10, right: 10),
-        title: Column(
+        title: const Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Flexible(
+            Flexible(
               child: SizedBox(
                 height: 110,
               ),
@@ -129,7 +129,7 @@ class CustomAppBar extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: () {
-                        Scaffold.of(context).openDrawer();
+                        Scaffold.of(context).openEndDrawer();
                       },
                       child: CircleAvatar(
                         radius: 15,

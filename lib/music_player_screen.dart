@@ -1,6 +1,7 @@
 import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:just_audio/just_audio.dart';
 import 'package:music_player/const.dart';
 import 'package:music_player/models/song.dart';
 
@@ -14,8 +15,24 @@ class MusicPlayerScreen extends StatefulWidget {
 class _MusicPlayerState extends State<MusicPlayerScreen> {
   bool val = false;
   final Song curr_song;
-
+  final _player = AudioPlayer();
   _MusicPlayerState({required this.curr_song});
+
+  // @override
+  // void initState() async {
+  //   // TODO: implement initState
+  //   try {
+  //     // AAC example: https://dl.espressif.com/dl/audio/ff-16b-2c-44100hz.aac
+  //     await _player.setAudioSource(AudioSource.uri(Uri.parse(
+  //         "https://s3.amazonaws.com/scifri-episodes/scifri20181123-episode.mp3")));
+  //   } catch (e) {
+  //     print("Error loading audio source: $e");
+  //   }
+
+  //   print("Playing the mnusic ");
+  //   await _player.play();
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Container(
