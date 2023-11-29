@@ -72,8 +72,8 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      actions: [Container()],
       automaticallyImplyLeading: false,
+      actions: [Container()],
       backgroundColor: backgroundColor,
       pinned: true,
       snap: true,

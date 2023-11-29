@@ -39,9 +39,8 @@ class _HomePageState extends State<HomePage> {
       debugShowCheckedModeBanner: false,
       home: SafeArea(
         child: Scaffold(
-          endDrawer: Drawer(
-            width: 250,
-          ),
+          drawer: CustomDrawer(),
+          endDrawer: CustomDrawer(),
           extendBody: true,
           backgroundColor: backgroundColor,
           // body: PageList[selected_page],
@@ -109,6 +108,135 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class CustomDrawer extends StatelessWidget {
+  const CustomDrawer({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      backgroundColor: backgroundColor,
+      width: 250,
+      child: Column(
+        children: [
+          const SizedBox(
+            height: 30,
+          ),
+          CircleAvatar(
+            radius: 35,
+            backgroundColor: Colors.pink.shade200,
+            child: const Text(
+              "M",
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30,
+                  color: Colors.black),
+            ),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Text(
+            "Monty",
+            style: TextStyle(
+                fontSize: 25, fontWeight: FontWeight.bold, color: Colors.white),
+          ),
+          Text(
+            "View profile",
+            style: TextStyle(fontSize: 10, color: Colors.grey.shade400),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Divider(
+            thickness: .5,
+            color: Colors.grey.shade600,
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15.0),
+            child: const Row(
+              children: [
+                Icon(
+                  Icons.electric_bolt_outlined,
+                  color: Colors.white,
+                  size: 20,
+                ),
+                SizedBox(
+                  width: 15,
+                ),
+                Text(
+                  "What's new",
+                  style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                )
+              ],
+            ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15.0),
+            child: const Row(
+              children: [
+                Icon(
+                  Icons.history,
+                  color: Colors.white,
+                  size: 20,
+                ),
+                SizedBox(
+                  width: 15,
+                ),
+                Text(
+                  "Listening history",
+                  style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                )
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15.0),
+            child: const Row(
+              children: [
+                Icon(
+                  Icons.settings,
+                  color: Colors.white,
+                  size: 20,
+                ),
+                SizedBox(
+                  width: 15,
+                ),
+                Text(
+                  "Setting",
+                  style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                )
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

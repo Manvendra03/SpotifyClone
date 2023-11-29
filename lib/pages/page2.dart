@@ -59,7 +59,6 @@ class Page2 extends StatelessWidget {
                   ),
                 );
               })
-          
         ],
       ),
     );
@@ -74,6 +73,8 @@ class CustomAppBarr extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
+      automaticallyImplyLeading: false,
+      actions: [Container()],
       backgroundColor: backgroundColor,
       pinned: true,
       snap: true,
@@ -129,15 +130,20 @@ class CustomAppBarr extends StatelessWidget {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  CircleAvatar(
-                    radius: 18,
-                    backgroundColor: Colors.pink.shade200,
-                    child: Text(
-                      "M",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 19,
-                          color: Colors.black),
+                  GestureDetector(
+                    onTap: () {
+                      Scaffold.of(context).openDrawer();
+                    },
+                    child: CircleAvatar(
+                      radius: 18,
+                      backgroundColor: Colors.pink.shade200,
+                      child: Text(
+                        "M",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 19,
+                            color: Colors.black),
+                      ),
                     ),
                   ),
                   const SizedBox(

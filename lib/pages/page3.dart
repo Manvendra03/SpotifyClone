@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:music_player/const.dart';
+import 'package:music_player/home.dart';
 
 class Page3 extends StatelessWidget {
   const Page3({super.key});
@@ -8,7 +9,9 @@ class Page3 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroundColor,
+      drawer: const CustomDrawer(),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         toolbarHeight: 75,
         elevation: 3,
         leadingWidth: 50,
@@ -16,15 +19,20 @@ class Page3 extends StatelessWidget {
         leading: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            CircleAvatar(
-              radius: 16,
-              backgroundColor: Colors.pink.shade200,
-              child: const Text(
-                "M",
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
-                    color: Colors.black),
+            GestureDetector(
+              onTap: () {
+                Scaffold.of(context).openDrawer();
+              },
+              child: CircleAvatar(
+                radius: 16,
+                backgroundColor: Colors.pink.shade200,
+                child: const Text(
+                  "M",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                      color: Colors.black),
+                ),
               ),
             ),
           ],
