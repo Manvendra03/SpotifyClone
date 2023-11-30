@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:music_player/const.dart';
+import 'package:music_player/data/const.dart';
 
 class Page4 extends StatelessWidget {
   const Page4({super.key});

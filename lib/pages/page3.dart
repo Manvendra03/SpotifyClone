@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:music_player/const.dart';
+import 'package:music_player/data/const.dart';
+import 'package:music_player/data/playlist_1.dart';
 import 'package:music_player/home.dart';
 
 class Page3 extends StatelessWidget {
@@ -101,7 +102,7 @@ class Page3 extends StatelessWidget {
               child: SizedBox(
                 height: MediaQuery.of(context).size.height,
                 child: ListView.builder(
-                    itemCount: Slist.length,
+                    itemCount: PlayList_1.length,
                     itemBuilder: (context, index) {
                       return Container(
                         margin: const EdgeInsets.only(top: 15),
@@ -109,7 +110,7 @@ class Page3 extends StatelessWidget {
                           SizedBox(
                               height: 60,
                               width: 60,
-                              child: Image.network(Slist[index].img)),
+                              child: Image.network(PlayList_1[index].img)),
                           const SizedBox(
                             width: 15,
                           ),
@@ -117,7 +118,7 @@ class Page3 extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                Slist[index].song_tittle,
+                                PlayList_1[index].song_tittle,
                                 style: const TextStyle(
                                     color: Colors.white, fontSize: 13),
                               ),
@@ -125,7 +126,7 @@ class Page3 extends StatelessWidget {
                                 height: 5,
                               ),
                               Text(
-                                Slist[index].singer_names,
+                                PlayList_1[index].singer_names,
                                 style: TextStyle(
                                     color: Colors.grey.shade500, fontSize: 12),
                               ),

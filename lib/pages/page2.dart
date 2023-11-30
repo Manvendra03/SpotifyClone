@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:music_player/const.dart';
+import 'package:music_player/data/const.dart';
+import 'package:music_player/playlist_screen.dart';
 
 class Page2 extends StatelessWidget {
   const Page2({super.key});
@@ -20,42 +21,56 @@ class Page2 extends StatelessWidget {
                   crossAxisSpacing: 12,
                   mainAxisSpacing: 12),
               itemBuilder: (context, index) {
-                return Container(
-                  padding: const EdgeInsets.only(top: 10, left: 10),
-                  decoration: BoxDecoration(
-                      color: tile_colors[index % tile_colors.length],
-                      borderRadius: BorderRadius.circular(5)),
-                  child: Stack(
-                    children: [
-                      Text(
-                        category_tile_List[index].tittle,
-                        style: const TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white),
-                      ),
-                      Positioned(
-                        right: -35,
-                        bottom: -8,
-                        child: Transform.rotate(
-                          angle: .5,
-                          child: Container(
-                            decoration: BoxDecoration(
-                                color: Colors.grey.shade300,
-                                borderRadius: BorderRadius.circular(10)),
-                            height: 80,
-                            width: 100,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(10),
-                              child: Image.network(
-                                category_tile_List[index].img_url,
-                                fit: BoxFit.cover,
+                return GestureDetector(
+                  onTap: () {
+                     Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => PlaylistScreen(
+                    colors: category_tile_List[index].color,
+                    playlist: category_tile_List[index].playlist,
+                    tittle: category_tile_List[index].tittle,
+                  ),
+                ),
+              );
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.only(top: 10, left: 10),
+                    decoration: BoxDecoration(
+                        color: tile_colors[index % tile_colors.length],
+                        borderRadius: BorderRadius.circular(5)),
+                    child: Stack(
+                      children: [
+                        Text(
+                          category_tile_List[index].tittle,
+                          style: const TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white),
+                        ),
+                        Positioned(
+                          right: -35,
+                          bottom: -8,
+                          child: Transform.rotate(
+                            angle: .5,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  color: Colors.grey.shade300,
+                                  borderRadius: BorderRadius.circular(10)),
+                              height: 80,
+                              width: 100,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(10),
+                                child: Image.network(
+                                  category_tile_List[index].img_url,
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                      )
-                    ],
+                        )
+                      ],
+                    ),
                   ),
                 );
               })

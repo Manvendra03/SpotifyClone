@@ -2,7 +2,7 @@ import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
-import 'package:music_player/const.dart';
+import 'package:music_player/data/const.dart';
 import 'package:music_player/models/song.dart';
 
 class MusicPlayerScreen extends StatefulWidget {

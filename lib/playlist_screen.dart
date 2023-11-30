@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:music_player/const.dart';
+import 'package:music_player/data/const.dart';
+import 'package:music_player/data/playlist_1.dart';
+import 'package:music_player/models/song.dart';
 
 class PlaylistScreen extends StatelessWidget {
-  const PlaylistScreen({super.key});
+  final Color colors;
+  final String tittle;
+  final List<Song> playlist;
 
+  const PlaylistScreen(
+      {super.key,
+      required this.colors,
+      required this.tittle,
+      required this.playlist});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -34,9 +43,9 @@ class PlaylistScreen extends StatelessWidget {
                         height: 180,
                       ),
                     ),
-                    const Text(
-                      "Music",
-                      style: TextStyle(
+                    Text(
+                      tittle,
+                      style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 30,
                       ),
@@ -46,7 +55,7 @@ class PlaylistScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            "144 songs",
+                            "${playlist.length} songs",
                             style: TextStyle(fontSize: 15, color: Colors.grey),
                           ),
                           Row(
@@ -79,7 +88,7 @@ class PlaylistScreen extends StatelessWidget {
                         end: Alignment.bottomCenter,
                         colors: [
                           // backgroundColor,
-                          Color.fromARGB(255, 46, 39, 176), backgroundColor,
+                          colors, backgroundColor,
                         ],
                       ),
                     ),
@@ -97,7 +106,7 @@ class PlaylistScreen extends StatelessWidget {
                     SizedBox(
                         height: 60,
                         width: 60,
-                        child: Image.network(Slist[index].img)),
+                        child: Image.network(PlayList_1[index].img)),
                     const SizedBox(
                       width: 15,
                     ),
@@ -107,7 +116,7 @@ class PlaylistScreen extends StatelessWidget {
                         children: [
                           SizedBox(
                             child: Text(
-                              Slist[index].song_tittle,
+                              playlist[index].song_tittle,
                               softWrap: true,
                               overflow: TextOverflow.ellipsis,
                               maxLines: 1,
@@ -122,7 +131,7 @@ class PlaylistScreen extends StatelessWidget {
                             height: 5,
                           ),
                           Text(
-                            Slist[index].singer_names,
+                            playlist[index].singer_names,
                             softWrap: true,
                             overflow: TextOverflow.ellipsis,
                             maxLines: 1,
@@ -137,7 +146,7 @@ class PlaylistScreen extends StatelessWidget {
                   ]),
                 );
               },
-              itemCount: Slist.length),
+              itemCount: playlist.length),
         ],
       ),
     );

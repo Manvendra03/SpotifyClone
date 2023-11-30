@@ -1,11 +1,10 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
-import 'package:music_player/const.dart';
+import 'package:music_player/data/const.dart';
 import 'package:music_player/pages/page1.dart';
 import 'package:music_player/pages/page2.dart';
 import 'package:music_player/pages/page3.dart';
 import 'package:music_player/pages/page4.dart';
-import 'package:music_player/playlist_screen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
@@ -17,7 +16,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int selected_page = 0;
+  int  selected_page = 0;
 
   List<Widget> PageList = [
     Page1(),
@@ -46,7 +45,7 @@ class _HomePageState extends State<HomePage> {
           // body: PageList[selected_page],
           body: PageTransitionSwitcher(
             child: PageList[selected_page],
-            duration: Duration(milliseconds: 700),
+            duration: Duration(milliseconds: 400),
             transitionBuilder: (child, primary, secoundary) =>
                 FadeThroughTransition(
               fillColor: backgroundColor,

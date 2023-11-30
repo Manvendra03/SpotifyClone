@@ -1,5 +1,6 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:music_player/const.dart';
+import 'package:music_player/data/const.dart';
 import 'package:music_player/playlist_screen.dart';
 
 class categoryList extends StatelessWidget {
@@ -9,20 +10,26 @@ class categoryList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const PlaylistScreen()),
-        );
-      },
-      child: Container(
-        height: 32,
-        child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: category.length,
-          itemBuilder: (BuildContext context, int index) {
-            return Container(
+    return Container(
+      height: 32,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: category_tile_List.length,
+        itemBuilder: (BuildContext context, int index) {
+          return GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => PlaylistScreen(
+                    colors: category_tile_List[index].color,
+                    playlist: category_tile_List[index].playlist,
+                    tittle: category_tile_List[index].tittle,
+                  ),
+                ),
+              );
+            },
+            child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 6),
               margin: const EdgeInsets.symmetric(
                 horizontal: 5,
@@ -33,16 +40,16 @@ class categoryList extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20)),
               child: Center(
                 child: Text(
-                  category[index],
+                  category_tile_List[index].tittle,
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 17,
                   ),
                 ),
               ),
-            );
-          },
-        ),
+            ),
+          );
+        },
       ),
     );
   }

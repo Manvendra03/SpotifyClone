@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:music_player/const.dart';
+import 'package:music_player/data/const.dart';
+import 'package:music_player/data/playlist_1.dart';
+import 'package:music_player/data/playlist_2.dart';
+import 'package:music_player/data/playlist_3.dart';
+import 'package:music_player/data/playlist_4.dart';
+import 'package:music_player/data/playlist_5.dart';
 import 'package:music_player/widget/categoryList.dart';
 import 'package:music_player/widget/horizontalList.dart';
 import 'package:music_player/widget/songGrid.dart';
@@ -26,32 +31,28 @@ class Page1 extends StatelessWidget {
                       height: 20,
                     ),
                     SongGrid(
-                      list: Slist,
+                      list: PlayList_3,
                     ),
                     const SizedBox(
                       height: 10,
                     ),
-                    HorizontalList(tittle: "Your Shows", songList: Slist),
+                    HorizontalList(tittle: "Your Liked", songList: PlayList_2),
                     const SizedBox(
                       height: 20,
                     ),
-                    HorizontalList(tittle: "Your Liked", songList: Slist),
+                    HorizontalList(
+                        tittle: "Recent Played", songList: PlayList_1),
                     const SizedBox(
                       height: 20,
                     ),
-                    HorizontalList(tittle: "Recent Played", songList: Slist),
+                    HorizontalList(tittle: "For You", songList: PlayList_4),
                     const SizedBox(
                       height: 25,
                     ),
-                    HorizontalList(tittle: "Your Shows", songList: Slist),
+                    HorizontalList(tittle: "Your Shows", songList: PlayList_5),
                     const SizedBox(
                       height: 10,
                     ),
-                    HorizontalList(tittle: "Your Liked", songList: Slist),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    HorizontalList(tittle: "Recent Played", songList: Slist),
                   ],
                 ),
               );
