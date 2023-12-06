@@ -17,7 +17,7 @@ class SongGrid extends StatelessWidget {
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisSpacing: 8,
               mainAxisSpacing: 8,
-              childAspectRatio: 3.1,
+              childAspectRatio: 3.2,
               crossAxisCount: 2),
           itemBuilder: (context, index) {
             return GestureDetector(
@@ -40,7 +40,7 @@ class SongGrid extends StatelessWidget {
                   children: [
                     Container(
                       color: Colors.white,
-                      width: 70,
+                      width: 55,
                       child: Image.network(
                         list[index].img,
                         fit: BoxFit.fill,
@@ -56,14 +56,14 @@ class SongGrid extends StatelessWidget {
                         maxLines: 2,
                         softWrap: true,
                         style:
-                            const TextStyle(color: Colors.white, fontSize: 16),
+                            const TextStyle(color: Colors.white, fontSize: 13),
                       ),
                     ),
-                    Icon(
-                      Icons.more_horiz,
-                      color: Colors.green.shade700,
-                      size: 20,
-                    )
+                    // Icon(
+                    //   Icons.more_horiz,
+                    //   color: Colors.green.shade700,
+                    //   size: 20,
+                    // )
                   ],
                 ),
               ),

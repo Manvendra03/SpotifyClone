@@ -54,4 +54,25 @@ List<Song> PlayList_3 = [
     song_desc: 'Asees Kaur',
     singer_names: 'Arijit Singh and Charan',
   ),
+  Song(
+    img:
+        'https://c.saavncdn.com/251/Socha-Na-Tha-Hindi-2020-20201111193033-500x500.jpg',
+    song_tittle: 'Socha na tha ',
+    song_desc: '',
+    singer_names: 'Sandesh Sandilya',
+  ),
+  Song(
+    img:
+        'https://c.saavncdn.com/478/Kesariyo-Rang-Hindi-2022-20220918053032-500x500.jpg',
+    song_tittle: 'Kesariyo Rang ',
+    song_desc: 'Asees Kaur',
+    singer_names: 'Asees Kaur and Dev',
+  ),
+  Song(
+    img:
+        'https://c.saavncdn.com/489/Achchi-Lagti-Ho-Punjabi-2022-20220817164911-500x500.jpg',
+    song_tittle: 'Achchi Lagti ho',
+    song_desc: 'Asees Kaur',
+    singer_names: 'Kavita Krishnamurthy',
+  ),
 ];

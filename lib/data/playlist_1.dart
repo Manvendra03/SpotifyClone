@@ -113,10 +113,4 @@ List<Song> PlayList_1 = [
       song_tittle: "Khairiyat,",
       song_desc: "KhairiyatKhairiyatKhairiyat",
       singer_names: "Single . Arjit Singh"),
-  Song(
-      img:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKdlUqDS8SOktRXHozXJFMuEM710IDlt5V1ehY83LKH9WqQ5n1iJSzkZrDQ6UxqAfxT38&usqp=CAU",
-      song_tittle: "Last Song",
-      song_desc: "Last Item of List",
-      singer_names: "Single . Manvendra Patidar"),
 ];

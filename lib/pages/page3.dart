@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:music_player/data/const.dart';
 import 'package:music_player/data/playlist_1.dart';
 import 'package:music_player/home.dart';
+import 'package:music_player/music_player_screen.dart';
 
 class Page3 extends StatelessWidget {
   const Page3({super.key});
@@ -104,35 +105,46 @@ class Page3 extends StatelessWidget {
                 child: ListView.builder(
                     itemCount: PlayList_1.length,
                     itemBuilder: (context, index) {
-                      return Container(
-                        margin: const EdgeInsets.only(top: 15),
-                        child: Row(children: [
-                          SizedBox(
-                              height: 60,
-                              width: 60,
-                              child: Image.network(PlayList_1[index].img)),
-                          const SizedBox(
-                            width: 15,
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                PlayList_1[index].song_tittle,
-                                style: const TextStyle(
-                                    color: Colors.white, fontSize: 13),
-                              ),
-                              const SizedBox(
-                                height: 5,
-                              ),
-                              Text(
-                                PlayList_1[index].singer_names,
-                                style: TextStyle(
-                                    color: Colors.grey.shade500, fontSize: 12),
-                              ),
-                            ],
-                          ),
-                        ]),
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => MusicPlayerScreen(
+                                        curr: PlayList_1[index],
+                                      )));
+                        },
+                        child: Container(
+                          margin: const EdgeInsets.only(top: 15),
+                          child: Row(children: [
+                            SizedBox(
+                                height: 60,
+                                width: 60,
+                                child: Image.network(PlayList_1[index].img)),
+                            const SizedBox(
+                              width: 15,
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  PlayList_1[index].song_tittle,
+                                  style: const TextStyle(
+                                      color: Colors.white, fontSize: 13),
+                                ),
+                                const SizedBox(
+                                  height: 5,
+                                ),
+                                Text(
+                                  PlayList_1[index].singer_names,
+                                  style: TextStyle(
+                                      color: Colors.grey.shade500,
+                                      fontSize: 12),
+                                ),
+                              ],
+                            ),
+                          ]),
+                        ),
                       );
                     }),
               ),

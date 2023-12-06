@@ -42,7 +42,7 @@ class _MusicPlayerState extends State<MusicPlayerScreen> {
           end: Alignment.bottomRight,
           colors: [
             // backgroundColor,
-            Colors.white.withOpacity(.1),
+            const Color.fromARGB(255, 255, 255, 255).withOpacity(.1),
             backgroundColor,
             Colors.black
           ],
@@ -76,8 +76,8 @@ class _MusicPlayerState extends State<MusicPlayerScreen> {
               )
             ],
           ),
-          const SizedBox(
-            height: 120,
+          SizedBox(
+            height: MediaQuery.of(context).size.height * .17,
           ),
           Container(
             height: 300,
@@ -160,9 +160,9 @@ class _MusicPlayerState extends State<MusicPlayerScreen> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: ProgressBar(
-              progress: Duration(milliseconds: 1000),
-              buffered: Duration(milliseconds: 1500),
-              total: Duration(milliseconds: 5000),
+              progress: Duration(seconds: 30),
+              buffered: Duration(seconds: 60),
+              total: Duration(seconds: 150),
               baseBarColor: Colors.grey.shade700,
               bufferedBarColor: Colors.grey.shade500,
               progressBarColor: Colors.white,

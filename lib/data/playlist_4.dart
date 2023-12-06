@@ -55,4 +55,25 @@ List<Song> PlayList_4 = [
     song_desc: 'Asees Kaur',
     singer_names: 'Sristi Bhandari and Sanjeev ',
   ),
+  Song(
+    img:
+        'https://c.saavncdn.com/682/Laxmii-Hindi-2020-20201127115234-500x500.jpg',
+    song_tittle: 'BurjKhalifa (From Laxmi)',
+    song_desc: 'Asees Kaur',
+    singer_names: 'Shakshi ,DJ Khushi, Nikhita Gandhi',
+  ),
+  Song(
+    img:
+        'https://c.saavncdn.com/577/Bareilly-Ki-Barfi-Hindi-2017-20170811112942-500x500.jpg',
+    song_tittle: 'Sweety Tera Drama Remix by Dj',
+    song_desc: 'Asees Kaur',
+    singer_names: 'Dev Negi ,Pawni Pandey',
+  ),
+  Song(
+    img:
+        'https://c.saavncdn.com/903/Tu-Jhoothi-Main-Makkaar-Hindi-2023-20230316165419-500x500.jpg',
+    song_tittle: 'Pyaar Hota Kayi Baar HAi',
+    song_desc: 'Asees Kaur',
+    singer_names: 'Arijit Singh and Charan',
+  ),
 ];
